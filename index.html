@@ -42,6 +42,10 @@
         <div class="stat-card"><span>每周课时</span><strong id="hourCount">0</strong><em>节</em></div>
         <div class="stat-card accent"><span>冲突提醒</span><strong id="conflictCount">0</strong><em>处</em></div>
       </section>
+      <section class="credit-panel panel">
+        <div class="credit-title"><div><h2>培养方案进度</h2><p>按 804 班工程硕士要求统计，研讨课 / 实验课 / 实践课 / 科学前沿讲座计入专业选修</p></div><span class="credit-total" id="creditTotalLabel">已计入 0 学分</span></div>
+        <div class="credit-grid" id="creditProgress"></div>
+      </section>
 
       <div class="workspace-grid">
         <section class="panel catalog-panel">
@@ -68,6 +72,11 @@
           <div id="scheduleView"></div>
         </section>
       </div>
+      <section class="panel selected-panel">
+        <div class="panel-head selected-head"><div><h2>已选课程</h2><p>按培养方案分类查看，可导出为 Excel 兼容文件</p></div><div class="export-actions"><button class="ghost-btn" id="exportCategoryBtn">导出当前分类</button><button class="primary-btn small-btn" id="exportAllBtn">导出全部已选</button></div></div>
+        <div class="category-tabs" id="categoryTabs"></div>
+        <div class="selected-table-wrap"><table class="selected-table"><thead><tr><th>课程名称</th><th>课程代码</th><th>分类</th><th>上课时间</th><th>周次</th><th>地点</th><th>教师</th><th></th></tr></thead><tbody id="selectedTableBody"></tbody></table></div>
+      </section>
     </main>
   </div>
   <div id="toast" class="toast"></div>
