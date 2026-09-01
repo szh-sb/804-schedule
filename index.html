@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>课表快选 · 2026 秋季</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark">课</div>
+        <div>
+          <div class="brand">课表快选 <span class="class-badge">804 班专用</span></div>
+          <div class="brand-sub">2026 秋季学期 · 选课助手 · 仅供 804 班级使用</div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <span class="sync-dot"><i></i> 数据已同步</span>
+        <button class="icon-btn" id="shareBtn" title="分享我的课表">↗ <span>分享</span></button>
+        <button class="primary-btn" id="printBtn">打印课表</button>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">SMART SCHEDULE BUILDER</p>
+          <h1>先选课，课表自动长出来。</h1>
+          <p class="hero-copy">搜索课程、点击加入，系统会自动检查时间冲突，并把一周安排排成清晰的时间表。</p>
+        </div>
+        <div class="hero-note"><span>⌘</span><div><b>804 班专属课表</b><small>仅供 804 班级内部选课与分享使用</small></div></div>
+      </section>
+
+      <section class="stats-row">
+        <div class="stat-card"><span>已选课程</span><strong id="selectedCount">0</strong><em>门</em></div>
+        <div class="stat-card"><span>总学分</span><strong id="creditCount">0</strong><em>学分</em></div>
+        <div class="stat-card"><span>每周课时</span><strong id="hourCount">0</strong><em>节</em></div>
+        <div class="stat-card accent"><span>冲突提醒</span><strong id="conflictCount">0</strong><em>处</em></div>
+      </section>
+
+      <div class="workspace-grid">
+        <section class="panel catalog-panel">
+          <div class="panel-head">
+            <div><h2>课程库</h2><p id="resultHint">正在读取课程数据…</p></div>
+            <button class="ghost-btn" id="demoBtn">试试示例课表</button>
+          </div>
+          <div class="search-box"><span>⌕</span><input id="searchInput" placeholder="搜索课程名、课程号、教师…" autocomplete="off"><kbd>/</kbd></div>
+          <div class="filter-row">
+            <select id="subjectFilter"><option value="">全部学科</option></select>
+            <select id="typeFilter"><option value="">全部课程性质</option></select>
+            <button class="filter-clear" id="clearFilter">清除筛选</button>
+          </div>
+          <div id="courseList" class="course-list"></div>
+          <div class="list-footer" id="listFooter"></div>
+        </section>
+
+        <section class="panel schedule-panel">
+          <div class="panel-head schedule-head">
+            <div><h2>我的课表</h2><p>点击课程卡片可查看详情</p></div>
+            <div class="view-toggle"><button class="active" data-view="week">周视图</button><button data-view="list">列表</button></div>
+          </div>
+          <div id="conflictBanner" class="conflict-banner hidden"></div>
+          <div id="scheduleView"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast"></div>
+  <div id="courseModal" class="modal-backdrop hidden"><div class="modal"><button class="modal-close" id="modalClose">×</button><div id="modalContent"></div></div></div>
+  <script src="data/courses.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
